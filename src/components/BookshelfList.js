@@ -6,15 +6,19 @@ class BookshelfList extends Component {
 
     render() {
         return <div>
-            {this.props.bookshelves.map((bookshelf) => (
-                <Bookshelf key={bookshelf.id} id={bookshelf.id} title={bookshelf.title} />
-            ))}
+            {this.props.bookshelves.map((bookshelf) => {
+                const matchingBooks = this.props.books.filter( book => book.shelf === bookshelf.id)
+                return (
+                    <Bookshelf key={bookshelf.id} id={bookshelf.id} title={bookshelf.title} books={matchingBooks} />
+                )
+            })}
         </div>
     }
 }
 
 BookshelfList.propTypes = {
-    bookshelves: PropTypes.array.isRequired
+    bookshelves: PropTypes.array.isRequired,
+    books: PropTypes.array.isRequired
 }
 
 export default BookshelfList

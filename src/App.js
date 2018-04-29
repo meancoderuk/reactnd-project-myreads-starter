@@ -40,7 +40,7 @@ class BooksApp extends React.Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-                <BookshelfList bookshelves={this.state.bookshelves} />
+                <BookshelfList bookshelves={this.state.bookshelves} books={this.state.books} />
             </div>
             <div className="open-search">
               <Link to='/search'>Add a book</Link>
