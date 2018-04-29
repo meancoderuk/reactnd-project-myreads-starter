@@ -10,20 +10,16 @@ class Bookshelf extends Component {
                 <h2 className="bookshelf-title">{this.props.title}</h2>
                 <div className="bookshelf-books">
                 <ol className="books-grid">
-                {this.props.books.map((book) => {
-                    const authors = book.authors.join(', ')
-                    return (
-                        <Book  
-                            key={book.id}
-                            id={book.id}
-                            shelf={this.props.id}
-                            thumbnail={book.imageLinks.smallThumbnail}
-                            title={book.title}
-                            authors={authors}
-                            onBookShelfChange={this.props.onBookShelfChange}
-                        />
-                    )
-                })}
+                    {this.props.books.map((book) => {
+                        return (
+                            <Book  
+                                key={book.id}
+                                shelf={this.props.id}
+                                book={book}
+                                onBookShelfChange={this.props.onBookShelfChange}
+                            />
+                        )
+                    })}
                 </ol>
                 </div>
             </div>
