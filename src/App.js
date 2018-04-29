@@ -8,7 +8,12 @@ import BookshelfList from './components/BookshelfList'
 
 class BooksApp extends React.Component {
   state = {
-    books: []
+    books: [],
+    bookshelves: [
+      { id: 'currentlyReading', title: 'Currently Reading'},
+      { id: 'wantToRead', title: 'Want to Read'},
+      { id: 'read', title: 'Read'}
+    ]
   }
 
   componentDidMount() {
@@ -17,7 +22,7 @@ class BooksApp extends React.Component {
         this.setState(() => ({
           books
         }))
-        console.log('BOOKS: ', books)
+        console.log('books:', this.state.books)
       }
     )
   }
@@ -35,7 +40,7 @@ class BooksApp extends React.Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-                <BookshelfList />
+                <BookshelfList bookshelves={this.state.bookshelves} />
             </div>
             <div className="open-search">
               <Link to='/search'>Add a book</Link>
