@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Book extends Component {
+
+    changeShelf = shelf => {
+        this.props.onBookShelfChange(this.props.id, shelf)
+    }
     render() {
         return (
             <li>
@@ -9,7 +13,7 @@ class Book extends Component {
                     <div className="book-top">
                         <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${this.props.thumbnail})` }}></div>
                         <div className="book-shelf-changer">
-                            <select onChange={this.props.onBookShelfChange} value={this.props.shelf}>
+                            <select onChange={(e) => this.changeShelf(e.target.value)} value={this.props.shelf}>
                                 <option value="none" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
@@ -27,6 +31,7 @@ class Book extends Component {
 }
 
 Book.propTypes = {
+    id: PropTypes.string.isRequired,
     shelf: PropTypes.string.isRequired,
     thumbnail: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

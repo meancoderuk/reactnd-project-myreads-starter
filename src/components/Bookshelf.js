@@ -15,6 +15,7 @@ class Bookshelf extends Component {
                     return (
                         <Book  
                             key={book.id}
+                            id={book.id}
                             shelf={this.props.id}
                             thumbnail={book.imageLinks.smallThumbnail}
                             title={book.title}
@@ -31,7 +32,6 @@ class Bookshelf extends Component {
 }
 
 Bookshelf.propTypes = {
-    id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     books: PropTypes.array.isRequired,
     onBookShelfChange: PropTypes.func.isRequired
