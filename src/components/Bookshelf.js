@@ -19,6 +19,7 @@ class Bookshelf extends Component {
                             thumbnail={book.imageLinks.smallThumbnail}
                             title={book.title}
                             authors={authors}
+                            onBookShelfChange={this.props.onBookShelfChange}
                         />
                     )
                 })}
@@ -32,7 +33,8 @@ class Bookshelf extends Component {
 Bookshelf.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    books: PropTypes.array.isRequired
+    books: PropTypes.array.isRequired,
+    onBookShelfChange: PropTypes.func.isRequired
 }
 
 export default Bookshelf

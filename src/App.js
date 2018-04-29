@@ -27,6 +27,10 @@ class BooksApp extends React.Component {
     )
   }
   
+  onBookShelfChange = (book, shelf) => {
+    console.log("CHANGING SHELF!")
+  }
+
   render() {
     return (
       <div className="app">
@@ -40,7 +44,7 @@ class BooksApp extends React.Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-                <BookshelfList bookshelves={this.state.bookshelves} books={this.state.books} />
+                <BookshelfList bookshelves={this.state.bookshelves} books={this.state.books} onBookShelfChange={this.onBookShelfChange}/>
             </div>
             <div className="open-search">
               <Link to='/search'>Add a book</Link>

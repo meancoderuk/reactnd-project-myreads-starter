@@ -9,7 +9,13 @@ class BookshelfList extends Component {
             {this.props.bookshelves.map((bookshelf) => {
                 const matchingBooks = this.props.books.filter( book => book.shelf === bookshelf.id)
                 return (
-                    <Bookshelf key={bookshelf.id} id={bookshelf.id} title={bookshelf.title} books={matchingBooks} />
+                    <Bookshelf
+                        key={bookshelf.id}
+                        id={bookshelf.id}
+                        title={bookshelf.title}
+                        books={matchingBooks}
+                        onBookShelfChange={this.props.onBookShelfChange}
+                    />
                 )
             })}
         </div>
@@ -18,7 +24,8 @@ class BookshelfList extends Component {
 
 BookshelfList.propTypes = {
     bookshelves: PropTypes.array.isRequired,
-    books: PropTypes.array.isRequired
+    books: PropTypes.array.isRequired,
+    onBookShelfChange: PropTypes.func.isRequired
 }
 
 export default BookshelfList
